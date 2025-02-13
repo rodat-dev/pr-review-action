@@ -8,3 +8,5 @@ branding:
 runs:
   using: 'node20'
   main: 'dist/index.js'
+  env:
+    NODE_OPTIONS: '--experimental-vm-modules'
