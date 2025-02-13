@@ -4,7 +4,7 @@
   "description": "A GitHub action reviews a PR, either freshly created or reopened, using Gemini with search grounding. It creates a review comment",
   "main": "dist/index.js",
   "scripts": {
-    "build": "bun build ./src/index.ts --target=node --outfile dist/index.js",
+    "build": "bun build ./src/index.ts --target=node --outfile dist/index.js && cp dist/index.js .github/actions/pr-review-action.js",
     "compile": "bun build ./src/index.ts --compile --outfile .github/actions/pr-review-action"
   },
   "keywords": [],
