@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { analyseChanges } from "./change-analysis";
+import { analyzeChanges } from "./change-analysis";
 import { GeminiSystemPrompt } from "./prompt";
 
 async function run() {
@@ -44,7 +44,7 @@ async function run() {
         core.info(`Number of files changed: ${changedFiles.length}`);
 
         // Analyse the changes
-        await analyseChanges(gemini, changedFiles as ChangedFile[], octokit, context);
+        await analyzeChanges(gemini, changedFiles as ChangedFile[], octokit, context);
     } catch (error) {
         const err = error as Error;
         core.setFailed(`Action failed with error: ${err.message} - ${err.stack}`);

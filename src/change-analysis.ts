@@ -50,7 +50,8 @@ async function fromTupleToReadableText(files: ChangedFileStatusTuple[], octokit:
     return texts.join("\n\n");
 }
 
-export async function analyseChanges(gemini: GenerativeModel,  changedFiles: ChangedFile[], octokit: InstanceType<typeof GitHub>, context: Context) {
+/// Function to analyze the Changes of a PR using Gemini
+export async function analyzeChanges(gemini: GenerativeModel,  changedFiles: ChangedFile[], octokit: InstanceType<typeof GitHub>, context: Context) {
     if (!context.payload.pull_request) {
         throw new Error("Failed to get the pull request!");
     }
