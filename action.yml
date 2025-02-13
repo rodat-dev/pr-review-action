@@ -1,0 +1,9 @@
+name: 'PR Reader'
+description: 'Reads a PR and contents'
+inputs:
+  githubToken:
+    description: 'GitHub Token, should pass through secrets.GITHUB_TOKEN'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
