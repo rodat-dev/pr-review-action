@@ -1,5 +1,9 @@
-name: 'PullRequestReviewAction'
-description: 'Analyzes a freshly opened PR and creates a review comment with bugs spotted, performance optimizations, suggestions for improvements.'
+name: 'Pull Request Reviewer'
+description: 'Reviews pull requests using Gemini AI to identify bugs, suggest improvements, and optimize performance'
+author: 'Tomas Roda'
+branding:
+  icon: 'eye'
+  color: 'blue'
 inputs:
   githubToken:
     description: 'GitHub Token, should pass through secrets.GITHUB_TOKEN'
@@ -9,4 +13,4 @@ inputs:
     required: true
 runs:
   using: 'node20'
-  main: '.github/actions/pr-review-action.js'
+  main: 'dist/index.js'
