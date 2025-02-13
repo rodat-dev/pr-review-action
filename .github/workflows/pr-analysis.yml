@@ -3,26 +3,25 @@ on:
     types: [opened, reopened]
 
 jobs:
-  read_pr:
+  analyze_pr:
     runs-on: ubuntu-latest
-    name: A job to read a PR
+    name: A job to analyze a PR with an LLM
     permissions:
       contents: write
       issues: write
       pull-requests: write
     steps:
-      # To use this private repository's action,
-      # you must check out the repository:
       - name: Checkout action
         uses: actions/checkout@v4
       - name: Install action packages
         shell: 'bash'
         run: npm install
-      - name: PRReader
+      - name: PullRequestAnalyzer
         uses: ./ # Uses an action in the root directory
-        id: pr-reader
+        id: analyze_pr
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.pr-reader.outputs.time }}"
+        run: echo "The time was ${{ steps.analyze_pr.outputs.time }}"
