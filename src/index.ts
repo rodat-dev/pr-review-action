@@ -79,7 +79,6 @@ async function run() {
                 {
                   googleSearchRetrieval: {
                     dynamicRetrievalConfig: {
-                      mode: "dynamic",
                       dynamicThreshold: 0.7,
                     },
                   },
