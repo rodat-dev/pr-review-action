@@ -8,10 +8,5 @@ inputs:
     description: 'Gemini API Key, should pass through secrets.GEMINI_API_KEY'
     required: true
 runs:
-  using: composite
-  steps:
-    - run: ${{ github.action_path }}/pr-review-action
-      shell: bash
-      env:
-        GITHUB_TOKEN: ${{ inputs.githubToken }}
-        GEMINI_API_KEY: ${{ inputs.geminiApiKey }}
+  using: 'node20'
+  main: '.github/actions/pr-review-action.js'

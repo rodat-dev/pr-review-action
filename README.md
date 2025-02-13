@@ -30,15 +30,17 @@ jobs:
     steps:
       - name: Checkout action
         uses: actions/checkout@v4
+      - name: Install action packages
+        shell: 'bash'
+        run: npm install
       - name: PullRequestReviewAction
-        uses: .github/actions/pr-review-action.yml
+        uses: .github/actions
         id: pr_review
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
       - name: Get the output time
-        run: echo "The time was ${{ steps.pr_review.outputs.time }}"
-
+        run: echo "The time was ${{ steps.review_pr.outputs.time }}"
 ```
 
 2. Set up the required secrets in your repository:
