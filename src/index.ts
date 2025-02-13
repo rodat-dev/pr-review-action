@@ -3,7 +3,7 @@ import * as github from "@actions/github";
 
 async function run() {
     try {
-        const token = core.getInput('github-token');
+        const token = core.getInput('githubToken');
         const octokit = github.getOctokit(token);
         const context = github.context;
 
