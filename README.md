@@ -30,15 +30,12 @@ jobs:
     steps:
       - name: Checkout action
         uses: actions/checkout@v4
-      - name: Install action packages
-        shell: 'bash'
-        run: npm install
-      - name: PullRequestReviewAction
-        uses: .github/actions
+      - name: Pull Request Reviewer
+        uses: rodat-dev/pr-review-action@v1.0.1
         id: pr_review
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - name: Get the output time
         run: echo "The time was ${{ steps.review_pr.outputs.time }}"
 ```

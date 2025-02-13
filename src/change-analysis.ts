@@ -9,6 +9,7 @@ function organizeChanges(changedFiles: ChangedFile[]): ChangedFileStatusTuple[] 
     });
 }
 
+// Function to retrieve the file contents from the PR changes
 async function getFileContents(filename: string, octokit: InstanceType<typeof GitHub>, repoInfo: RepositoryInformation, sha: string) {
     const { data: fileContent } = await octokit.rest.repos.getContent({
         ...repoInfo,
