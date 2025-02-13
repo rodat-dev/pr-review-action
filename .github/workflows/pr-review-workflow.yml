@@ -14,7 +14,7 @@ jobs:
       - name: Checkout action
         uses: actions/checkout@v4
       - name: PullRequestReviewAction
-        uses: ./.github/actions/pr-review-action
+        uses: ./.github/actions
         id: pr_review
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
