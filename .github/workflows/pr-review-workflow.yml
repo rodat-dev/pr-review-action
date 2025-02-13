@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  pr_review:
+    runs-on: ubuntu-latest
+    name: A job to review a PR with an LLM
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v4
+      - name: PullRequestReviewAction
+        uses: .github/actions/pr-review-action.yml
+        id: pr_review
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
+      - name: Get the output time
+        run: echo "The time was ${{ steps.pr_review.outputs.time }}"

@@ -1,0 +1,17 @@
+name: 'PullRequestReviewAction'
+description: 'Analyzes a freshly opened PR and creates a review comment with bugs spotted, performance optimizations, suggestions for improvements.'
+inputs:
+  githubToken:
+    description: 'GitHub Token, should pass through secrets.GITHUB_TOKEN'
+    required: true
+  geminiApiKey:
+    description: 'Gemini API Key, should pass through secrets.GEMINI_API_KEY'
+    required: true
+runs:
+  using: composite
+  steps:
+    - run: ${{ github.action_path }}/pr-review-action
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.githubToken }}
+        GEMINI_API_KEY: ${{ inputs.geminiApiKey }}
