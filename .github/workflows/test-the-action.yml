@@ -1,10 +1,10 @@
 on: workflow_dispatch
 
 jobs:
-  hello_world_job:
+  read_pr:
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'AutoReadme'
-    name: A job to say hello
+    if: github.event.label.name == 'PRReader'
+    name: A job to read a PR
     permissions:
       contents: write
       issues: write
@@ -17,7 +17,7 @@ jobs:
       # - name: Install action packages
       #   shell: 'bash'
       #   run: npm install
-      - name: PR Reader
+      - name: PRReader
         uses: ./ # Uses an action in the root directory
         id: pr-reader
         with:

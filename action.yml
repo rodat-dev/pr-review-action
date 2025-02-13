@@ -1,4 +1,4 @@
-name: 'PR Reader'
+name: 'PRReader'
 description: 'Reads a PR and contents'
 inputs:
   githubToken:
