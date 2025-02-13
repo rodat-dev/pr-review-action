@@ -13,11 +13,8 @@ jobs:
     steps:
       - name: Checkout action
         uses: actions/checkout@v4
-      - name: Install action packages
-        shell: 'bash'
-        run: npm install
       - name: PullRequestReviewAction
-        uses: ./
+        uses: ./.github/actions/pr-review-action
         id: pr_review
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
