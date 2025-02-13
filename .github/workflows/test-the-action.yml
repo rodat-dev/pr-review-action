@@ -21,11 +21,9 @@ jobs:
       #   run: npm install
       - name: PR Reader
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: pr-reader
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
-          whoToGreet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.pr-reader.outputs.time }}"
