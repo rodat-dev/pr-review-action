@@ -6,8 +6,12 @@ import { GeminiSystemPrompt } from "./prompt";
 
 async function run() {
     try {
-        const token = core.getInput('githubToken');
-        const geminiApiKey = core.getInput('geminiApiKey');
+        const token = process.env.GITHUB_TOKEN;
+        const geminiApiKey = process.env.GEMINI_API_KEY;
+        
+        if (!token || !geminiApiKey) {
+            throw new Error('Missing required environment variables. Please set GITHUB_TOKEN and GEMINI_API_KEY');
+        }
         
         const octokit = github.getOctokit(token);
         const context = github.context;

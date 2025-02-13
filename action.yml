@@ -4,13 +4,7 @@ author: 'Tomas Roda'
 branding:
   icon: 'eye'
   color: 'blue'
-inputs:
-  githubToken:
-    description: 'GitHub Token, should pass through secrets.GITHUB_TOKEN'
-    required: true
-  geminiApiKey:
-    description: 'Gemini API Key, should pass through secrets.GEMINI_API_KEY'
-    required: true
+
 runs:
   using: 'node20'
   main: 'dist/index.js'
