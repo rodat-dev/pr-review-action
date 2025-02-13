@@ -15,9 +15,9 @@ jobs:
       # you must check out the repository:
       - name: Checkout action
         uses: actions/checkout@v4
-      # - name: Install action packages
-      #   shell: 'bash'
-      #   run: npm install
+      - name: Install action packages
+        shell: 'bash'
+        run: npm install
       - name: PRReader
         uses: ./ # Uses an action in the root directory
         id: pr-reader

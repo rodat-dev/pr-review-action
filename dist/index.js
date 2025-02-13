@@ -23034,7 +23034,7 @@ var core = __toESM(require_core());
 var github = __toESM(require_github());
 async function run() {
   try {
-    const token = core.getInput("github-token");
+    const token = core.getInput("githubToken");
     const octokit = github.getOctokit(token);
     const context2 = github.context;
     if (context2.eventName !== "pull_request") {
