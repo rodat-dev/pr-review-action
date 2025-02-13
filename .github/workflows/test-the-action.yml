@@ -21,7 +21,7 @@ jobs:
       - name: PRReader
         uses: ./ # Uses an action in the root directory
         id: pr-reader
-        with:
+        env:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
       # Use the output from the `hello` step
       - name: Get the output time
