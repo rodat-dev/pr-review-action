@@ -23965,7 +23965,7 @@ async function run() {
       systemInstruction: GeminiSystemPrompt,
       tools: [
         {
-          googleSearchRetrieval: {
+          googleSearch: {
             dynamicRetrievalConfig: {
               dynamicThreshold: 0.7
             }
